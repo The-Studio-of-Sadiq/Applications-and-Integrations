@@ -21,7 +21,7 @@
     "wiki": "node scripts/make-wiki.mjs"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.32.1",
+    "@modelcontextprotocol/sdk": "^1.32.2",
     "katex": "^0.19.0",
     "markdown-it": "^15.0.3",
     "markdown-it-texmath": "^1.0.0",
