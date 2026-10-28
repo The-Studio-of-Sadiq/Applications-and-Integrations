@@ -1,0 +1,31 @@
+name: Tooling bug
+description: Something wrong with the PDF build, figure scripts, book checks, CI or the MCP server.
+title: "[Tooling] "
+labels: ["tooling"]
+body:
+  - type: dropdown
+    id: component
+    attributes:
+      label: Component
+      options:
+        - PDF build (scripts/build-pdf.mjs)
+        - Figure scripts (figures/scripts/)
+        - Book checks (scripts/check-book.mjs, figure-plan, insert-figures)
+        - MCP server (mcp/)
+        - GitHub Actions workflows
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: The command you ran, what you expected, and what you got (paste the error).
+      render: shell
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: Environment
+      placeholder: "Windows 11, Node 22, Python 3.12, Chrome 141"

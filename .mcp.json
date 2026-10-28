@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "applications-integrations": {
+      "command": "node",
+      "args": ["mcp/server.mjs"]
+    }
+  }
+}

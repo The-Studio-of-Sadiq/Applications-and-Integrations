@@ -1,0 +1,30 @@
+name: Erratum
+description: Report a wrong number, equation, statement or figure caption in the text.
+title: "[Erratum] §"
+labels: ["erratum"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks! Precise reports get fixed fastest. Section numbers look like `14.8`; worked examples are named in bold in the text.
+  - type: input
+    id: location
+    attributes:
+      label: Where
+      description: Chapter and section number, plus the worked example, equation or table if it has a name.
+      placeholder: "§6.5, Worked example — slip and rotor copper loss of a 75 kW pump motor"
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What the book says
+      description: Quote it (LaTeX is fine).
+    validations:
+      required: true
+  - type: textarea
+    id: right
+    attributes:
+      label: What it should say, and why
+      description: A short derivation, a numerical check (Python, SPICE, MATLAB…), a measurement or a reference.
+    validations:
+      required: true

@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Read the book (PDF)
+    url: https://github.com/The-Studio-of-Sadiq/Applications-and-Integrations/blob/main/pdf/Applications-and-Integrations.pdf
+    about: The whole book as one PDF with bookmarks.
+  - name: Wiki
+    url: https://github.com/The-Studio-of-Sadiq/Applications-and-Integrations/wiki
+    about: Chapter guide, figures, PDF build, MCP server and FAQ.
+  - name: Contributing guide
+    url: https://github.com/The-Studio-of-Sadiq/Applications-and-Integrations/blob/main/CONTRIBUTING.md
+    about: How to report errors and propose fixes, figures and sections.

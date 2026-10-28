@@ -1,0 +1,31 @@
+name: Proposal
+description: Propose a new section, worked example or substantial rewrite.
+title: "[Proposal] "
+labels: ["proposal"]
+body:
+  - type: input
+    id: chapter
+    attributes:
+      label: Chapter
+      placeholder: "Chapter 35 — Hardware–Software Co-Design"
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: What you propose
+      description: The topic, the engineering problem it starts from, and where it fits in the chapter.
+    validations:
+      required: true
+  - type: textarea
+    id: boundary
+    attributes:
+      label: Boundary
+      description: Does it belong in this book? Field physics, circuit theory, semiconductor devices and converter circuit internals belong to other books of the series (see TOC.md).
+  - type: checkboxes
+    id: style
+    attributes:
+      label: Style
+      options:
+        - label: I have read the house style in CONTRIBUTING.md.
+          required: true

@@ -1,0 +1,35 @@
+cff-version: 1.2.0
+message: "If you use or adapt this book, please cite it as below."
+type: dataset
+title: "Applications and Integrations (Book 6 — The Applications & Integrations Core)"
+abstract: >-
+  An open, project-oriented textbook on combining electrical and electronic
+  engineering into working systems: requirements, architecture, modelling,
+  prototyping, verification and documentation; sensors, signal conditioning
+  and data acquisition; embedded, IoT and edge-AI devices; robotics, drones
+  and mechatronics; industrial automation, motor control and functional
+  safety; solar PV, battery systems, electric vehicles and microgrids;
+  communication links, practical signal processing and biomedical
+  instrumentation; engineering software, scientific computing, machine
+  learning and digital twins; and seven complete engineering projects.
+  9 parts, 40 chapters and 225 computed figures, written in Markdown and
+  LaTeX, with a typeset PDF and an MCP server.
+authors:
+  - given-names: "Golam Kuadir Khan"
+    family-names: "Prince"
+repository-code: "https://github.com/The-Studio-of-Sadiq/Applications-and-Integrations"
+license: MIT
+version: "1.0.0"
+date-released: "2026-10-28"
+keywords:
+  - systems engineering
+  - instrumentation
+  - data acquisition
+  - embedded systems
+  - internet of things
+  - robotics
+  - industrial automation
+  - renewable energy
+  - electric vehicles
+  - digital twins
+  - textbook

@@ -1,0 +1,12 @@
+# Store text with LF line endings everywhere, so diffs stay clean across Windows, macOS and Linux.
+* text=auto eol=lf
+
+# Binary and generated assets.
+*.pdf  binary
+*.png  binary
+pdf/*.pdf          linguist-generated=true
+FIGURES.md         linguist-generated=true
+package-lock.json  linguist-generated=true
+
+# Count the book's Markdown in GitHub's language bar.
+*.md   linguist-documentation=false linguist-detectable=true

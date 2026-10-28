@@ -1,0 +1,69 @@
+name: Check book
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  book:
+    name: Sources, figure plan and MCP server
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci
+
+      - name: Book consistency (TOC, layout, math, figure markers, links)
+        run: node scripts/check-book.mjs
+
+      - name: Figure plan is up to date
+        run: |
+          node scripts/figure-plan.mjs
+          git diff --exit-code -- FIGURES.md || (echo "::error::Run 'npm run figures:plan' and commit FIGURES.md." && exit 1)
+
+      - name: Every drawn figure is placed in its chapter
+        run: |
+          node scripts/insert-figures.mjs
+          git diff --exit-code -- 'part-*' || (echo "::error::Run 'node scripts/insert-figures.mjs' and commit the chapters." && exit 1)
+
+      - name: MCP server smoke test
+        run: node scripts/mcp-smoke.mjs
+
+  figures:
+    name: Figure scripts run
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements.txt
+
+      - run: pip install -r requirements.txt
+
+      - name: Regenerate every figure
+        run: python scripts/build-figures.py
+
+      - name: Every planned figure exists
+        run: |
+          missing=0
+          for f in $(grep -oh 'figures/ch[0-9][0-9]/[^ |]*\.png' part-*/*.md | sort -u); do
+            [ -f "$f" ] || { echo "::error::missing $f"; missing=1; }
+          done
+          exit $missing

@@ -1,0 +1,24 @@
+name: Figure
+description: A figure is wrong, unclear, inconsistent with the text, or missing.
+title: "[Figure] "
+labels: ["figure"]
+body:
+  - type: input
+    id: number
+    attributes:
+      label: Figure number
+      placeholder: "Figure 13.3"
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is wrong
+      description: Wrong curve or value, mislabelled axis, overlapping text, disagreement with the chapter's numbers…
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix
+      description: Optional. The script is figures/scripts/chNN.py; the specification is the FIGURE marker in the chapter (see FIGURES.md).
